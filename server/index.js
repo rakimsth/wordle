@@ -8,7 +8,6 @@ app.use(express.json());
 
 app.get("/", async (req, res, next) => {
   const date = new Date().toISOString().split("T")[0];
-  // const URL = `https://www.nytimes.com/svc/wordle/v2/${date}.json`;
   const URL = "https://api.frontendexpert.io/api/fe/wordle-words";
   const resp = await axios(URL);
   const data = resp?.data || [];

@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import "./App.css";
 import { useState } from "react";
 
+const APP_URL = import.meta.env.VITE_APP_URL || "http://localhost:4444";
+
 function App() {
   const [wordOfDay, setWordOfDay] = useState("");
   const [guesses, setGuesses] = useState([]);
@@ -44,7 +46,7 @@ function App() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch("http://localhost:4444");
+      const response = await fetch(APP_URL);
       const data = await response.json();
       setWordOfDay(data.solution);
     }
